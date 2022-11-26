@@ -17,7 +17,7 @@ for idx in range(len(appliances)):
 df_detail = pd.DataFrame({'appliance_id': [], 'appliance_name': [], 'power': [], 'set_ch': [], 'set_vol': [],
                           'briefing': [], 'anti_wrinkle': [], 'eco_dry': [], 'set_time': [], 'set_temp': [],
                           'fire_power': [], 'wind_power': [], 'set_mod': [], 'burner': [], 'preserve': [],
-                          'reserve_time': [], 'spinning': [], 'rising': [], 'routine_id' : []})
+                          'reserve_time': [], 'spining': [], 'rinsing': [], 'routine_id' : []})
 
 
 for i in range(len(details_array)):
