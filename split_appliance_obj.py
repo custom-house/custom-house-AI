@@ -18,6 +18,4 @@ for idx in range(len(appliance)):
 routines.reset_index(inplace=True)
 routines = routines.rename(columns={'index': 'routine_ID'})
 
-print(routines)
-
 routines.to_csv('appliances.csv')
