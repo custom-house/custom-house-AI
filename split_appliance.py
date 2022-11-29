@@ -17,8 +17,7 @@ for idx in range(len(appliances)):
 df_detail = pd.DataFrame({'appliance_id': [], 'appliance_name': [], 'power': [], 'set_ch': [], 'set_vol': [],
                           'briefing': [], 'anti_wrinkle': [], 'eco_dry': [], 'set_time': [], 'set_temp': [],
                           'fire_power': [], 'wind_power': [], 'set_mod': [], 'burner': [], 'preserve': [],
-                          'reserve_time': [], 'spining': [], 'rinsing': [], 'routine_id' : []})
-
+                          'reserve_time': [], 'spining': [], 'rinsing': [], 'routine_id': [], 'user_id': []})
 
 for i in range(len(details_array)):
     for idx in range(len(details_array[i])):
@@ -28,5 +27,9 @@ for i in range(len(details_array)):
         df_detail.at[i, 'routine_id'] = appliances['routine_ID'][i]
 
 df_detail['routine_id'] = df_detail['routine_id'].apply(np.int64)
-print(df_detail)
+
+df_brief = df_detail[['appliance_id',
+                      'appliance_name', 'routine_id', 'user_id']]
+
 df_detail.to_csv('details.csv')
+df_brief.to_csv('brief.csv')
