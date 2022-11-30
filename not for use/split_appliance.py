@@ -1,8 +1,9 @@
 import pandas as pd
 import numpy as np
 
-appliances = pd.read_csv('appliances.csv')
+appliances = pd.read_csv('Data/appliances.csv')
 appliances = appliances.drop('Unnamed: 0', axis=1)
+routine = pd.read_csv('Data/Routine_With_User_ID.csv')
 
 detail = []
 details = []
@@ -26,10 +27,12 @@ for i in range(len(details_array)):
         df_detail.at[i, header] = value
         df_detail.at[i, 'routine_id'] = appliances['routine_ID'][i]
 
+df_detail['user_id'] = routine['user_ID']
+
 df_detail['routine_id'] = df_detail['routine_id'].apply(np.int64)
 
 df_brief = df_detail[['appliance_id',
                       'appliance_name', 'routine_id', 'user_id']]
 
-df_detail.to_csv('details.csv')
-df_brief.to_csv('brief.csv')
+df_detail.to_csv('Data/details.csv')
+df_brief.to_csv('Data/brief.csv')
