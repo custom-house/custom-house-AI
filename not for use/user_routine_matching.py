@@ -12,6 +12,8 @@ for idx in range(len(user)):
     routine_list.sort()
     user.at[idx, 'routine_ID'] = str(
         routine_list).replace('[', '').replace(']', '').replace(',', '')
+    birth = str(user.loc[idx, 'birth'])
+    user.at[idx, 'age'] = 2022 - int(birth[:4])
 
 for idx in range(len(user)):
     for i in range(len(user.loc[idx, 'routine_ID'].split(' '))):
@@ -23,9 +25,8 @@ routine = routine.fillna(0)
 routine = routine.apply(np.int64)
 routine = routine.reset_index().rename(columns={'index': 'routine_id'})
 
-user = user.drop('routine_ID', axis=1)
+user = user.drop(['routine_ID', 'name', 'password', 'user_id'], axis=1)
 
-user = user.drop(['name', 'password', 'user_id'], axis=1)
 user = pd.get_dummies(user, columns=['sex'])
 
 user[['routine_1', 'routine_2', 'routine_3', 'routine_4', 'routine_5']] = user[[
@@ -61,4 +62,4 @@ new_df = pd.concat([new_df2, new_df3])
 sort_new_df = new_df.sort_values(by='id')
 sort_new_df = sort_new_df.reset_index().drop(['index'], axis=1)
 
-sort_new_df.to_csv('Data/User_With_Rouitne_ID.csv')
+sort_new_df.to_csv('Data/User_With_Routine_ID.csv')
