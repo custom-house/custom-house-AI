@@ -1,6 +1,6 @@
 import pandas as pd
 
-routine = pd.read_csv('Routine.csv')
+routine = pd.read_csv('Data/Routine.csv')
 
 appliance = routine['Appliance'].values
 
@@ -18,4 +18,4 @@ for idx in range(len(appliance)):
 routines.reset_index(inplace=True)
 routines = routines.rename(columns={'index': 'routine_ID'})
 
-routines.to_csv('appliances.csv')
+routines.to_csv('Data/appliances.csv')
