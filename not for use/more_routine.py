@@ -1,6 +1,5 @@
 import pandas as pd
 from itertools import combinations
-# Check Duplication
 
 routine = pd.DataFrame({'appliance_1': [], 'appliance_2': [], 'appliance_3': [], 'appliance_4': [],
                         'appliance_5': [], 'appliance_6': [], 'appliance_7': [], 'appliance_8': [], 'appliance_9': []})

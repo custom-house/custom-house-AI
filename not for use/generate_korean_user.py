@@ -64,7 +64,7 @@ if male_count > 0:
         male['name'] = male_name
         male['sex'] = 'M'
         # 10대 - 50대에 걸쳐 생성되도록 age 설정
-        male['birth'] = str(birth[random.randint(1,20089)])[:10].replace('-','')
+        male['birth'] = str(birth[random.randint(1,19089)])[:10].replace('-','')
         try:
             male['user_id'] = get_eng_name(
                 male_name).lower().replace(' ', '') + '{:04d}'.format(i + 1)
@@ -82,7 +82,7 @@ if female_count > 0:
         female['id'] = i + male_count + 1
         female['name'] = female_name
         female['sex'] = 'F'
-        female['birth'] = str(birth[random.randint(1,20089)])[:10].replace('-','')
+        female['birth'] = str(birth[random.randint(1,19089)])[:10].replace('-','')
         try:
             female['user_id'] = get_eng_name(
                 female_name).lower().replace(' ', '') + '{:04d}'.format(i + male_count + 1)
