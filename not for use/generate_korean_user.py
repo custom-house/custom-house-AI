@@ -15,7 +15,7 @@ from korean_name_generator import namer
 users = []
 household = [1] * 334 + [2] * 280 + [3] * 201 + [4] * 147 + [5] * 36
 
-start_date = pd.to_datetime('1948-01-01')
+start_date = pd.to_datetime('1968-01-01')
 end_date = pd.to_datetime('2002-12-31')
 birth = (pd.date_range(start_date, end_date, freq = 'D'))
 
@@ -64,7 +64,7 @@ if male_count > 0:
         male['name'] = male_name
         male['sex'] = 'M'
         # 10대 - 50대에 걸쳐 생성되도록 age 설정
-        male['birth'] = str(birth[random.randint(1,19089)])[:10].replace('-','')
+        male['birth'] = str(birth[random.randint(1,12784)])[:10].replace('-','')
         try:
             male['user_id'] = get_eng_name(
                 male_name).lower().replace(' ', '') + '{:04d}'.format(i + 1)
@@ -82,7 +82,7 @@ if female_count > 0:
         female['id'] = i + male_count + 1
         female['name'] = female_name
         female['sex'] = 'F'
-        female['birth'] = str(birth[random.randint(1,19089)])[:10].replace('-','')
+        female['birth'] = str(birth[random.randint(1,12784)])[:10].replace('-','')
         try:
             female['user_id'] = get_eng_name(
                 female_name).lower().replace(' ', '') + '{:04d}'.format(i + male_count + 1)
@@ -95,5 +95,5 @@ if female_count > 0:
         print('현재 ' + str(i + male_count + 1) +
               ' 번째 진행중: ' + female['user_id'])
 
-with open('user_data.json', 'w', encoding='UTF-8') as json_file:
+with open('Data/user_data.json', 'w', encoding='UTF-8') as json_file:
     json.dump(users, json_file, ensure_ascii=False)
